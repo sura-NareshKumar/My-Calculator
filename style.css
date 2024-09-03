@@ -1,0 +1,172 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ececec, #f3f3f3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 360px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.heading {
+    font-size: 1.5rem;
+    color: #333;
+    background: #ff9800;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: 2px solid #ffa000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: headingAnimation 1s ease-out infinite;
+}
+
+.display {
+    width: 100%;
+    padding: 20px;
+    text-align: right;
+    font-size: 2rem;
+    background: #333;
+    color: #fff;
+    border-bottom: 1px solid #444;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-out;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+        "clear div div div"
+        "seven eight nine plus"
+        "four five six equal"
+        "seven eight nine equal"
+        "zero zero dot equal";
+    gap: 1px;
+    background: #f0f0f0;
+    width: 100%;
+}
+
+.btn {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    font-size: 1.5rem;
+    padding: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.btn:hover {
+    background: #f9f9f9;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-operator {
+    background: #ff5722;
+    color: #fff;
+}
+
+.btn-operator:hover {
+    background: #e64a19;
+}
+
+.btn-operator:active {
+    background: #d84315;
+}
+
+.btn-equal {
+    background: #4caf50;
+    color: #fff;
+}
+
+.btn-equal:hover {
+    background: #388e3c;
+}
+
+.btn-equal:active {
+    background: #2c6c2b;
+}
+
+.btn-clear {
+    background: #ff5722;
+    color: #fff;
+}
+
+.btn-clear:hover {
+    background: #e64a19;
+}
+
+.btn-clear:active {
+    background: #d84315;
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+.btn-dot {
+    grid-column: span 1;
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 15px;
+        font-size: 1.2rem;
+        height: 50px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes headingAnimation {
+    0%, 100% {
+        transform: scale(1);
+        color: #333;
+    }
+    50% {
+        transform: scale(1.05);
+        color: #fff;
+    }
+}
